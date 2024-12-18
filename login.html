@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="bscslogo.jpg" type="image/icon type" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="login-box" id="background">
+        <h3 class="text-center">Login</h3>
+        <label for="username" class="text-small">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="textfields margin-bottom"
+        />
+        <p class="text-red text-small" id="wrongUsername">Wrong Username</p>
+
+        <label for="password" class="text-small">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="textfields"
+        />
+        <p class="text-red text-small" id="wrongPassword">Wrong Password</p>
+        <input
+          type="checkbox"
+          name="checkbox"
+          id="checkbox"
+          class="margin-top"
+        />
+        <span class="text-small">show password</span>
+        <br />
+        <center>
+          <button class="btn" id="login">Login</button>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  document.getElementById('checkbox').addEventListener('change', function () {
+    const input = document.getElementById('password')
+    input.type = this.checked ? 'text' : 'password'
+
+    const background = document.getElementById('background')
+    background.style.backgroundColor = this.checked ? 'none' : 'none'
+  })
+
+  document.getElementById('login').addEventListener('click', function () {
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
+
+    const inputPassword = document.getElementById('password')
+    const wrongUsername = document.getElementById('wrongUsername')
+    const wrongPassword = document.getElementById('wrongPassword')
+
+    if (username !== '_aethez_') {
+      wrongUsername.style.display = 'block'
+    } else {
+      wrongUsername.style.display = 'none'
+    }
+
+    if (password !== 'zamieeu') {
+      inputPassword.style.borderColor = 'red'
+      wrongPassword.style.display = 'block'
+    } else {
+      inputPassword.style.borderColor = 'black'
+      wrongPassword.style.display = 'none'
+    }
+
+    if (username === '_aethez_' && password === 'zamieeu') {
+      window.location = 'HOMEPAGE.html'
+    }
+  })
+</script>
